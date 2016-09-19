@@ -5,19 +5,20 @@ var
 
 tape("some primitives then an object", function(t){
 	var out= cu(42, "meaning", {all:"well"})
-	console.log(out)
+	t.deepEqual(out, [{0:42, 1:"meaning", all:"well"}])
 	t.end()
+
 })
 
 tape("just primitives", function(t){
-	var out= cu(42, "meaning", {all:"well"})
-	console.log(out)
+	var out= cu(42, "meaning", "solid")
+	t.deepEqual(out, [{0:42, 1:"meaning", 2:"solid"}])
 	t.end()
 })
 
 tape("a primitive then two objects", function(t){
 	var out= cu(42, {all:"well"}, {more:"objects"})
-	console.log(out)
+	t.deepEqual(out, [{0:42, all:"well"}, {more:"objects"}])
 	t.end()
 })
 
